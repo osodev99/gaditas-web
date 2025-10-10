@@ -39,26 +39,59 @@ class DetailScreen extends StatelessWidget {
             'Air Max 270 React',
             style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
           ),
-          Text('\$150'),
-          Row(
-            children: [
-              for (int i = 0; i < 5; i++) Icon(Icons.star),
-              Text('4,7'),
-              Text('(147) Reviews'),
-            ],
+          Text(
+            '\$150',
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
           Row(
             children: [
-              Container(width: 30, height: 30, color: Colors.red),
-              Container(width: 30, height: 30, color: Colors.green),
-              Container(width: 30, height: 30, color: Colors.blue),
+              for (int i = 0; i < 5; i++)
+                Icon(Icons.star, color: Colors.orange),
+              Text('4,7', style: TextStyle(fontWeight: FontWeight.bold)),
+              Text(
+                '(147) Reviews',
+                style: TextStyle(
+                  color: Colors.purple,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.purple,
+                  decorationThickness: 2,
+                ),
+              ),
             ],
           ),
-          Text('Select size'),
+          Row(
+            spacing: 8,
+            children: [
+              CircleColorPicker(color: Colors.purple),
+              CircleColorPicker(color: Colors.green),
+              CircleColorPicker(color: Colors.blue),
+            ],
+          ),
+          Text('Select size', style: TextStyle(fontWeight: FontWeight.bold)),
           Row(children: [for (int i = 7; i < 13; i++) Text('$i')]),
-          FilledButton(onPressed: () {}, child: Text('Add to Bag')),
+          FilledButton.icon(
+            onPressed: () {},
+            style: FilledButton.styleFrom(padding: EdgeInsets.all(24)),
+            icon: Icon(Icons.collections),
+            label: Text('Add to Bag'),
+          ),
         ],
       ),
+    );
+  }
+}
+
+class CircleColorPicker extends StatelessWidget {
+  const CircleColorPicker({super.key, required this.color});
+
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 40,
+      height: 40,
+      decoration: BoxDecoration(shape: BoxShape.circle, color: color),
     );
   }
 }
