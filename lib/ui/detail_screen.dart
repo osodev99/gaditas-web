@@ -68,7 +68,10 @@ class DetailScreen extends StatelessWidget {
             ],
           ),
           Text('Select size', style: TextStyle(fontWeight: FontWeight.bold)),
-          Row(children: [for (int i = 7; i < 13; i++) Text('$i')]),
+          Row(
+            spacing: 8,
+            children: [for (int i = 7; i < 13; i++) RectangleNumber(number: i)],
+          ),
           FilledButton.icon(
             onPressed: () {},
             style: FilledButton.styleFrom(padding: EdgeInsets.all(24)),
@@ -92,6 +95,26 @@ class CircleColorPicker extends StatelessWidget {
       width: 40,
       height: 40,
       decoration: BoxDecoration(shape: BoxShape.circle, color: color),
+    );
+  }
+}
+
+class RectangleNumber extends StatelessWidget {
+  const RectangleNumber({super.key, required this.number});
+
+  final int number;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 75,
+      height: 30,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: Colors.grey[300],
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Text('$number'),
     );
   }
 }
