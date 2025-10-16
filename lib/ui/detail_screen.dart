@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({super.key});
+  const DetailScreen({super.key, required this.args});
+
+  final String args;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,11 @@ class DetailScreen extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (Navigator.canPop(context)) {
+                        Navigator.pop(context);
+                      }
+                    },
                     icon: Icon(Icons.arrow_back),
                   ),
                 ),
