@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ui/detail_screen.dart';
+import 'package:flutter_application_1/ui/responsive_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -100,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => DetailScreen(args: '20'),
+                          builder: (context) => ResponsiveScreen(),
                         ),
                       );
                     }
