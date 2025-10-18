@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ui/memory_game.dart';
 import 'package:flutter_application_1/ui/score_screen.dart';
 
 void main() {
@@ -10,6 +11,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: ScoreScreen());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MemoryGamePage(),
+    );
   }
 }
